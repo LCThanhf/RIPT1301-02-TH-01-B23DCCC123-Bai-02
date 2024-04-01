@@ -1,9 +1,7 @@
 
 let students = [];
 
-
 let tempStudentData = {};
-
 
 function displayStudents() {
   const tableBody = document.getElementById('studentTableBody');
@@ -21,8 +19,8 @@ function displayStudents() {
         <td>${student.email}</td>
         <td>${student.class}</td>
         <td>
-          <button onclick="editStudent(${index})">Edit</button>
-          <button onclick="deleteStudent(${index})">Delete</button>
+          <button onclick="editStudent(${index})">Sửa</button>
+          <button onclick="deleteStudent(${index})">Xóa</button>
         </td>
       </tr>
     `;
@@ -30,12 +28,11 @@ function displayStudents() {
   });
 }
 
-
 function addStudent() {
   const studentId = prompt('Enter student ID:');
   const name = prompt('Enter student name:');
   const dob = prompt('Enter student date of birth (YYYY-MM-DD):');
-  const performance = prompt('Enter student performance (Excellent/Good/Average):');
+  const performance = prompt('Enter student performance (Tốt/Khá/Trung Bình):');
   const address = prompt('Enter student address:');
   const phone = prompt('Enter student phone number:');
   const email = prompt('Enter student email:');
@@ -45,7 +42,6 @@ function addStudent() {
   students.push(newStudent);
   displayStudents();
 }
-
 
 function editStudent(index) {
   const student = students[index];
@@ -60,7 +56,7 @@ function editStudent(index) {
   const dob = prompt('Enter new student date of birth (YYYY-MM-DD):', student.dob);
   if (dob !== null) tempStudentData.dob = dob;
 
-  const performance = prompt('Enter new student performance (Excellent/Good/Average):', student.performance);
+  const performance = prompt('Enter new student performance (Tốt/Khá/Trung Bình):', student.performance);
   if (performance !== null) tempStudentData.performance = performance;
 
   const address = prompt('Enter new student address:', student.address);
@@ -84,7 +80,6 @@ function editStudent(index) {
   }
 }
 
-
 function deleteStudent(index) {
   const confirmation = confirm('Are you sure you want to delete this student?');
   if (confirmation) {
@@ -93,8 +88,6 @@ function deleteStudent(index) {
   }
 }
 
-
 displayStudents();
-
 
 document.getElementById('addStudentBtn').addEventListener('click', addStudent);
